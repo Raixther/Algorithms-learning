@@ -6,7 +6,8 @@ namespace Lesson1
     {
         static void Main(string[] args)
         {
-            SimplicityCheckingStuff.IsSimple(Convert.ToInt32(Console.ReadLine()));
+            SimplicityCheckingStuff A = new SimplicityCheckingStuff();
+            A.IsSimple(Convert.ToInt32(Console.ReadLine()));
         }
     }
 }

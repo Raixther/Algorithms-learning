@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lesson1
 {
-    public static class SimplicityCheckingStuff
+    public class SimplicityCheckingStuff
     {
-       private  static int d = 0;
+       private int d = 0;
 
-       private static int i = 2;
-       static public void IsSimple(int n)
+       private int i = 2;
+
+        public void IsSimple(int n)
         {
        
             while (i < n)
