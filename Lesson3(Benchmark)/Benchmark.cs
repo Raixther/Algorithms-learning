@@ -13,7 +13,7 @@ namespace Lesson3_Benchmark_
     [MemoryDiagnoser]
     [RankColumn]
     [KeepBenchmarkFiles]
-    [XmlExporterAttribute.Full]
+    
     public class Benchmark
     {
         TestData testdata;
