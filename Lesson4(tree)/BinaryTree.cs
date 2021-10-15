@@ -8,7 +8,7 @@ namespace Lesson4_tree_
 {
 	public class BinaryTree
 	{
-		 TreeNode root { get; set; }
+		public TreeNode root { get; set; }
 
 		public BinaryTree()
 		{
@@ -60,7 +60,7 @@ namespace Lesson4_tree_
 			}
 
 		}
-	
+
 		public TreeNode GetNodeByValue(int value)
 		{
 			TreeNode temp = root;
@@ -81,13 +81,13 @@ namespace Lesson4_tree_
 				}
 
 			}
-		
-			
+
+
 		}
 
 		public TreeNode GetRoot()
 		{
-			
+
 			return root;
 		}
 
@@ -98,7 +98,7 @@ namespace Lesson4_tree_
 				Console.WriteLine("дерево пусто");
 			}
 			else
-			PreOrderTravers(root);
+				PreOrderTravers(root);
 		}
 
 		static void PreOrderTravers(TreeNode root, string s = "")
@@ -122,29 +122,29 @@ namespace Lesson4_tree_
 
 		public void RemoveItem(int value)
 		{
-			TreeNode DelNode =  GetNodeByValue(value);
+			TreeNode DelNode = GetNodeByValue(value);
 
-			if (DelNode == root&&(root.LeftChild==null&& root.RightChild==null))
+			if (DelNode == root && (root.LeftChild == null && root.RightChild == null))
 			{
 				root = null;
 			}
 
-			if (DelNode.LeftChild==null&&DelNode.RightChild==null)
+			if (DelNode.LeftChild == null && DelNode.RightChild == null)
 			{
 				DelNode = null;
 			}
-			else if (DelNode.LeftChild != null  && DelNode.RightChild == null)
+			else if (DelNode.LeftChild != null && DelNode.RightChild == null)
 			{
 				DelNode.Value = DelNode.LeftChild.Value;
 
 				DelNode.LeftChild = DelNode.LeftChild.LeftChild;
-				
+
 			}
 			else if (DelNode.RightChild != null && DelNode.LeftChild == null)
 			{
 				DelNode.Value = DelNode.RightChild.Value;
 				DelNode.RightChild = DelNode.RightChild.RightChild;
-				
+
 			}
 			else if (DelNode.LeftChild != null && DelNode.RightChild != null)
 			{
@@ -152,11 +152,11 @@ namespace Lesson4_tree_
 
 				TreeNode temp2 = DelNode.RightChild;
 
-				while (temp.LeftChild!=null)
+				while (temp.LeftChild != null)
 				{
 					temp = temp.LeftChild;
 
-					if (temp2.LeftChild.LeftChild!=null)
+					if (temp2.LeftChild.LeftChild != null)
 					{
 						temp2 = temp2.LeftChild;
 					}
@@ -165,12 +165,72 @@ namespace Lesson4_tree_
 
 				temp2.LeftChild = null;
 
-				
+
 			}
+
+
 		}
 
 
 
+		public TreeNode BFSearch(int value, TreeNode node)
+		{
 
+			Queue<TreeNode> Q = new();
+
+			Q.Enqueue(node);
+
+			while (Q.Count > 0)
+			{
+				node = Q.Dequeue();
+				Console.WriteLine(node.Value);
+				if (node.Value == value)
+				{
+					return node;
+				}
+				if (node.LeftChild != null)
+				{
+					Q.Enqueue(node.LeftChild);
+				}
+				if (node.RightChild != null)
+				{
+					Q.Enqueue(node.RightChild);
+				}
+			}
+			return null;
+		}
+
+		public TreeNode DFSearch(int value, TreeNode node)
+		{
+			Stack<TreeNode> S = new();
+
+			S.Push(node);
+
+
+			while(S.Count>0)
+			{
+				node = S.Pop();
+
+				Console.WriteLine(node.Value);
+
+				if(node.Value==value)
+				{
+					return node;
+				}		
+				if (node.RightChild != null)
+				{
+					S.Push(node.RightChild);
+				}
+				if (node.LeftChild != null)
+				{
+					S.Push(node.LeftChild);
+
+				}
+
+			}
+
+			return null;
+
+		}
 	}
 }
