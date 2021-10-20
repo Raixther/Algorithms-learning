@@ -12,12 +12,12 @@ namespace Lesson4
  
             HashSet<string> hset = new HashSet<string>();
 
-            for (int i = 0; i < 70000; i++)
+            for (int i = 0; i < 500000; i++)
             {
                 hset.Add(Convert.ToString(Guid.NewGuid()));
             }
 
-            string[] arr = new string[70000];
+            string[] arr = new string[500000];
 
             for (int i = 0; i < arr.Length; i++)
             {
@@ -26,14 +26,14 @@ namespace Lesson4
 
             List<string> list = new List<string>();
 
-            for (int i = 0; i < 70000; i++)
+            for (int i = 0; i < 500000; i++)
             {
                 list.Add(Convert.ToString(Guid.NewGuid()));
             }
 
             LinkedList<string> list2 = new LinkedList<string>();
 
-            for (int i = 0; i < 70000; i++)
+            for (int i = 0; i < 50000; i++)
             {
                 list2.AddLast(Convert.ToString(Guid.NewGuid()));
             }
@@ -43,9 +43,9 @@ namespace Lesson4
 
 
 
+            for (int i = 0; i < 15; i++)
+            {
 
-
-          
                 Stopwatch N = new Stopwatch();
 
                 N.Start();
@@ -54,7 +54,7 @@ namespace Lesson4
 
                 TimeSpan timeN = N.Elapsed;
 
-                Console.WriteLine(timeN+" l");
+                Console.WriteLine(timeN + " l");
 
 
 
@@ -68,7 +68,7 @@ namespace Lesson4
 
                 TimeSpan timeS = S.Elapsed;
 
-                Console.WriteLine(timeS+" hs");
+                Console.WriteLine(timeS + " hs");
 
 
 
@@ -83,7 +83,7 @@ namespace Lesson4
 
                 TimeSpan timeH = N.Elapsed;
 
-                Console.WriteLine(timeH+" ll");
+                Console.WriteLine(timeH + " ll");
 
 
 
@@ -97,11 +97,11 @@ namespace Lesson4
 
                 TimeSpan timeJ = J.Elapsed;
 
-                Console.WriteLine(timeJ+" arr");
+                Console.WriteLine(timeJ + " arr");
 
                 Console.WriteLine();
 
-            
+            }
         }
     }
 
