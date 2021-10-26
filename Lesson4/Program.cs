@@ -9,48 +9,56 @@ namespace Lesson4
     {
         static void Main(string[] args)
         {
- 
+
+            string[] testdata =new string[185000];
+
+			for (int i = 0; i < testdata.Length; i++)
+			{
+                testdata[i] = Convert.ToString(Guid.NewGuid());
+            }
+              
             HashSet<string> hset = new HashSet<string>();
 
-            for (int i = 0; i < 500000; i++)
+            for (int i = 0; i < 185000; i++)
             {
-                hset.Add(Convert.ToString(Guid.NewGuid()));
+                hset.Add(testdata[i]);
             }
 
-            string[] arr = new string[500000];
+            string[] arr = new string[185000];
 
             for (int i = 0; i < arr.Length; i++)
             {
-                arr[i] = Convert.ToString(Guid.NewGuid());
+                arr[i] = testdata[i];
             }
+
 
             List<string> list = new List<string>();
 
-            for (int i = 0; i < 500000; i++)
+            for (int i = 0; i < 185000; i++)
             {
-                list.Add(Convert.ToString(Guid.NewGuid()));
+                list.Add(testdata[i]);
             }
 
             LinkedList<string> list2 = new LinkedList<string>();
 
-            for (int i = 0; i < 50000; i++)
+            for (int i = 0; i < 185000; i++)
             {
-                list2.AddLast(Convert.ToString(Guid.NewGuid()));
+                list2.AddLast(testdata[i]);
             }
 
 
+            string searchdata = Convert.ToString(Guid.NewGuid());
 
 
-
-
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 55; i++)
             {
-
+                Console.WriteLine(i);
+                Console.WriteLine();
                 Stopwatch N = new Stopwatch();
 
                 N.Start();
 
-                list.Contains("stjsjytktkghkdktk");
+                list.Contains(searchdata);
 
                 TimeSpan timeN = N.Elapsed;
 
@@ -64,7 +72,7 @@ namespace Lesson4
 
                 S.Start();
 
-                hset.Contains("stjsjytktkghkdktk");
+                hset.Contains(searchdata);
 
                 TimeSpan timeS = S.Elapsed;
 
@@ -79,7 +87,7 @@ namespace Lesson4
 
                 H.Start();
 
-                list2.Find("stjsjytktkghkdktk");
+                list2.Find(searchdata);
 
                 TimeSpan timeH = N.Elapsed;
 
@@ -93,16 +101,19 @@ namespace Lesson4
 
                 J.Start();
 
-                Array.Find<string>(arr, i => i == "stjsjytktkghkdktk");
+                Array.Find<string>(arr, i => i == searchdata);
 
                 TimeSpan timeJ = J.Elapsed;
 
                 Console.WriteLine(timeJ + " arr");
 
                 Console.WriteLine();
+                Console.WriteLine();
 
             }
-        }
+
+            Console.ReadKey();
+        }       
     }
 
   
